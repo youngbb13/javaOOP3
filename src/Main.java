@@ -13,11 +13,6 @@ public class Main {
         accounts.add(debitDima);
         accounts.add(creditValentyn);
         accounts.add(savingRuslan);
-//        for(Account account : accounts) {
-//            account.showInfo();
-//            account.withdraw(2500);
-//            System.out.println();
-//        }
 
         BankService bankService = new BankService();
         bankService.withdrawFromAll(accounts, 2500);
@@ -27,9 +22,17 @@ public class Main {
         bankAccounts.put("ACC-002", creditValentyn);
         bankAccounts.put("ACC-003", savingRuslan);
 
-        Account found = bankService.findAccountByNumber(bankAccounts, "ACC-001");
-        found.showInfo();
-        System.out.println();
+
+        try {
+            Account found = bankService.findAccountByNumber(bankAccounts, "ACC-0033");
+            found.showInfo();
+            System.out.println();
+        }
+        catch (AccountNotFoundException e) {
+            System.out.println(e.getMessage());
+            System.out.println();
+        }
+
 
         Transferable transferableAndriy = new DebitAccount("Andriy", 300);
         transferableAndriy.transfer(creditValentyn, 100);

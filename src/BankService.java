@@ -11,6 +11,11 @@ public class BankService {
     }
 
     public Account findAccountByNumber(Map<String, Account> accounts, String accountNumber) {
-        return accounts.get(accountNumber);
+        Account account = accounts.get(accountNumber);
+
+        if(account == null)
+            throw new AccountNotFoundException("Account not found: " + accountNumber);
+
+        return account;
     }
 }
