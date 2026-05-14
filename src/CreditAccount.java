@@ -9,12 +9,13 @@ public class CreditAccount extends Account {
     @Override
     public void withdraw(double amount) {
         if (balance + creditLimit >= amount) {
+            System.out.println("Your balance before is: " + balance);
             balance -= amount;
-            System.out.println("Withdraw money " + amount);
-            System.out.println("Your balance is: " + balance);
+            System.out.println("Withdraw money: " + amount);
+            System.out.println("Your balance after is: " + balance);
         }
         else {
-            System.out.println("Credit limit exceeded");
+            System.out.println("Credit limit exceeded!");
         }
     }
 }

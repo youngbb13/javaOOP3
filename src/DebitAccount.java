@@ -6,9 +6,10 @@ public class DebitAccount extends Account implements Transferable {
     @Override
     public void withdraw(double amount) {
         if (balance >= amount) {
+            System.out.println("Your balance before is: " + balance);
             balance -= amount;
-            System.out.println("Withdraw money " + amount);
-            System.out.println("Your balance is: " + balance);
+            System.out.println("Withdraw money: " + amount);
+            System.out.println("Your balance after is: " + balance);
         }
         else {
             System.out.println("Not enough money");
@@ -21,11 +22,11 @@ public class DebitAccount extends Account implements Transferable {
             System.out.println("Your balance before transfer is: " + balance);
             balance -= amount;
             targetAccount.deposit(amount);
-            System.out.println("Transfer money " + amount);
+            System.out.println("Transfer money: " + amount);
             System.out.println("Your balance after transfer is: " + balance);
         }
         else {
-            System.out.println("Not enough money");
+            System.out.println("Not enough money!");
         }
     }
 }

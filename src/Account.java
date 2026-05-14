@@ -11,7 +11,6 @@ public abstract class Account {
 
     public void showInfo() {
         System.out.println("Owner is: " + owner);
-        System.out.println("Balance is: " + balance);
     }
 
     public void deposit(double amount) {
